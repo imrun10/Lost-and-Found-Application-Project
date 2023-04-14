@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1007.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <children>
+      <SplitPane dividerPositions="0.21354166666666666" layoutY="139.0" prefHeight="701.0" prefWidth="1007.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="139.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <ListView fx:id="locationsList" layoutX="-31.0" layoutY="108.0" prefHeight="524.0" prefWidth="183.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <SplitPane dividerPositions="0.39272030651340994" layoutX="114.0" layoutY="138.0" orientation="VERTICAL" prefHeight="398.0" prefWidth="417.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <TableView fx:id="itemTable" layoutX="14.0" layoutY="-34.0" prefHeight="162.0" prefWidth="577.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                  <TableColumn fx:id="nameColumn" prefWidth="130.0" text="Name" />
+                                  <TableColumn fx:id="dateColumn" prefWidth="130.0" text="Date" />
+                                    <TableColumn fx:id="idColumn" prefWidth="130.0" text="Student ID" />
+                                    <TableColumn fx:id="locationColumn" prefWidth="130.0" text="Location" />
+                                    <TableColumn fx:id="statusColumn" prefWidth="130.0" text="Status" />
+                                    <TableColumn fx:id="desColumn" prefWidth="130.0" text="Description" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <SplitPane dividerPositions="0.4073107049608355" layoutX="92.0" layoutY="41.0" orientation="VERTICAL" prefHeight="268.0" prefWidth="448.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <items>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #FFFFFF;">
+                                       <children>
+                                          <Label layoutX="12.0" layoutY="6.0" text="Description:" textFill="#1024ad" AnchorPane.leftAnchor="12.0">
+                                             <font>
+                                                <Font name="Arial Bold" size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <TextArea fx:id="clickDescription" layoutX="15.0" layoutY="42.0" prefHeight="90.0" prefWidth="446.0" promptText="Clicked item's description will appear here." AnchorPane.leftAnchor="15.0" />
+                                          <Text fx:id="notificationText" fill="#dd0014" layoutX="533.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notification about action." wrappingWidth="199.52261352539062" AnchorPane.rightAnchor="50.477386474609375">
+                                             <font>
+                                                <Font name="Arial Italic" size="13.0" />
+                                             </font>
+                                          </Text>
+                                          <HBox layoutX="531.0" layoutY="58.0" prefHeight="26.0" prefWidth="200.0" spacing="10.0" AnchorPane.rightAnchor="52.0">
+                                             <children>
+                                                <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteAction" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #DD0014#DD0014;" text="Delete" textFill="#1024ad">
+                                                   <font>
+                                                      <Font name="Arial Bold Italic" size="13.0" />
+                                                   </font>
+                                                </Button>
+                                                <Button fx:id="undoButton" mnemonicParsing="false" onAction="#undoAction" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #DD0014#DD0014;" text="Undo" textFill="#1024ad">
+                                                   <font>
+                                                      <Font name="Arial Bold Italic" size="13.0" />
+                                                   </font>
+                                                </Button>
+                                                <Button fx:id="exportButton" mnemonicParsing="false" onAction="#exportAction" prefHeight="30.0" prefWidth="60.0" style="-fx-background-color: #DD0014#DD0014;" text="Export" textFill="#1024ad">
+                                                   <font>
+                                                      <Font name="Arial Bold Italic" size="13.0" />
+                                                   </font>
+                                                </Button>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </AnchorPane>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                       <children>
+                                          <PieChart fx:id="lostChart" prefHeight="249.0" prefWidth="391.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" />
+                                          <PieChart fx:id="foundChart" layoutX="292.0" layoutY="-24.0" prefHeight="256.0" prefWidth="402.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="-7.0" AnchorPane.rightAnchor="-10.0" />
+                                       </children>
+                                    </AnchorPane>
+                                </items>
+                              </SplitPane>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <ImageView fitHeight="122.0" fitWidth="216.0" layoutX="-1.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="-1.0" AnchorPane.topAnchor="32.0">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="itemName" layoutX="223.0" layoutY="50.0" prefHeight="25.0" prefWidth="134.0" promptText="Enter Item" />
+      <DatePicker fx:id="dateLostFound" layoutX="371.0" layoutY="49.0" onAction="#dateAction" prefHeight="25.0" prefWidth="125.0" promptText="Enter Date" />
+      <ComboBox fx:id="itemLocation" layoutX="220.0" layoutY="98.0" prefHeight="25.0" prefWidth="134.0" promptText="Enter Location" />
+      <ComboBox fx:id="itemStatus" layoutX="369.0" layoutY="97.0" prefHeight="25.0" prefWidth="125.0" promptText="Enter Status" />
+      <TextArea fx:id="itemDescription" layoutX="512.0" layoutY="97.0" prefHeight="38.0" prefWidth="200.0" promptText="Enter Description" />
+      <Text fx:id="systemDateTime" fill="#dd0014" layoutX="843.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="System's date &amp; time" wrappingWidth="156.76671762243757" AnchorPane.rightAnchor="7.233282377562432" AnchorPane.topAnchor="33.2314453125">
+         <font>
+            <Font name="Arial Bold Italic" size="13.0" />
+         </font>
+      </Text>
+      <MenuBar fx:id="menuBar" layoutY="-3.0" prefHeight="29.0" prefWidth="1010.0" style="-fx-background-color: #DD0014#DD0014;">
+         <menus>
+            <Menu fx:id="helpMenu" mnemonicParsing="false" text="Help">
+              <items>
+                <MenuItem fx:id="instructionsItem" mnemonicParsing="false" onAction="#instructionsAction" text="Instructions" />
+              </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <TextField fx:id="studentID" layoutX="515.0" layoutY="49.0" prefHeight="25.0" prefWidth="125.0" promptText="Enter ID" />
+      <Label layoutX="225.0" layoutY="32.0" text="Item" textFill="#1024ad">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="373.0" layoutY="32.0" text="Date Lost or Found" textFill="#1024ad">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="225.0" layoutY="77.0" text="Location" textFill="#1024ad">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="374.0" layoutY="77.0" text="Status" textFill="#1024ad">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="517.0" layoutY="32.0" text="Student ID" textFill="#1024ad">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="514.0" layoutY="77.0" text="Description" textFill="#1024ad">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+      </Label>
+      <HBox layoutX="795.0" layoutY="85.0" prefHeight="26.0" prefWidth="142.0" spacing="20.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="85.0">
+         <children>
+            <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveAction" prefHeight="26.0" prefWidth="60.0" style="-fx-background-color: #DD0014#DD0014;" text="Save" textFill="#1024ad">
+               <font>
+                  <Font name="Arial Bold Italic" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="editButton" mnemonicParsing="false" onAction="#editAction" prefHeight="26.0" prefWidth="60.0" style="-fx-background-color: #DD0014#DD0014;" text="Edit" textFill="#1024ad">
+               <font>
+                  <Font name="Arial Bold Italic" size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
